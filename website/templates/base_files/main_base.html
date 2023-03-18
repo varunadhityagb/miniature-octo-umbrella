@@ -5,11 +5,12 @@
         <meta name="viewport" content="width=device-width, initial-scale=1"/>
 
         <link rel="stylesheet" href= "static\bootstrap.min.css"/>
+        {% block css %} {% endblock %}
         <link rel="stylesheet" href="static\style.css"/>
         
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Oxygen:wght@300;400;700&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Edu+NSW+ACT+Foundation:wght@400;500;600&family=Indie+Flower&family=Lilita+One&family=Oxygen:wght@300;400;700&family=Shadows+Into+Light&display=swap" rel="stylesheet">
 
         <title>{% block title %}Home{% endblock %}</title>
     </head>
@@ -21,6 +22,7 @@
 
 <script src="static\scripts\jquery-3.6.4.min.js"></script>
 <script src="static\scripts\bootstrap.min.js"></script>
+{% block js %} {% endblock %}
 <script src="static\scripts\script.min.js"></script>
 
 </body>

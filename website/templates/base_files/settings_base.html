@@ -9,7 +9,7 @@
         
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Oxygen:wght@300;400;700&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Edu+NSW+ACT+Foundation:wght@400;500;600&family=Indie+Flower&family=Lilita+One&family=Oxygen:wght@300;400;700&family=Shadows+Into+Light&display=swap" rel="stylesheet">
 
         <title>{% block title %}Settings{% endblock %}</title>
     </head>
@@ -19,7 +19,7 @@
         <nav class="navbar navbar-expand-lg bg-body-tertiary" style="background-color: #152f4e;">
             <div class="container" id="no-padding">
                 <div class="navbar-brand">
-                    <a href="/" >
+                    <a href="/home" >
                         <span id="back-arrow" class="carousel-control-prev-icon"></span>
                     </a>
                 </div>
@@ -39,6 +39,24 @@
                 </div>
         </nav>
     </header>
+    {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+        {% for category, message in messages %}
+        {% if category == 'error' %}
+        <div class="alert alert-danger alert-dismissable fade show" role="alert">
+            {{ message }}
+            <button type="button" class="btn-close" aria-label="Close" data-bs-dismiss="alert" style="float: right;"></button>
+        </div>
+        {% else %}
+        <div class="alert alert-success alert-dismissable fade show" role="alert" id="div_flash">
+            {{ message }}
+            <button type="button" class="btn-close" aria-label="Close" data-dismiss="alert" data-bs-dismiss="alert" style="float: right;"></button>
+        </div>
+        {% endif %}
+        {% endfor %}
+    {% endif %}
+    {% endwith %}
+    
 {% block content %}
 
 {% endblock %}

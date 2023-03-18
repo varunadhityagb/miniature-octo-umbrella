@@ -28,6 +28,8 @@ body {
     font-family: 'Oxygen', sans-serif;
     color: black;
     font-weight: bold;
+    background-color: #cc8c6a;
+    border-radius: 15px;
 }
 
 #nav-link-2 {
@@ -37,6 +39,8 @@ body {
     font-weight: bold;
     float: right;
 }
+
+
 
 #navbarNav1 {
     background-color: #cb7a4d;
@@ -53,10 +57,123 @@ body {
 }
 
 
-#widgets_menu {
-    margin: 5%;
-}
 
 #widgets_col {
-    border: 2px solid green
+    margin-left: 5px;
+    margin-right: 5px;
+    margin-bottom: 5px;
+    background-color: #bb474b;
+    border: 2px solid black;
+    border-radius: 15px;
+    height: 5em;
+    text-transform: capitalize;
+    padding-top: 1.5em;
+    padding-bottom: 1.5em;
+    font-size: 120%;
+}
+
+#widgets_col > a {
+    text-decoration: none;
+    font-weight: bold;
+    color: #f6f4f2;
+    padding-bottom: 50px;
+}
+
+input[type="month"] {
+    background-color: #bb474b;
+    font-family: 'Oxygen', sans-serif;
+}
+
+#label-in-login {
+    color: #f6f4f2;
+    font-size: 120%;
+}    
+
+#keeplogin {
+    color: #f6f4f2;
+}
+
+#auth-links {
+    color: #bb474b;
+    text-decoration: solid;
+    font-weight: bolder;
+    padding-left: 70%;
+}
+
+#loginBtn {
+    color: black;
+    font-weight: bold;
+    margin-left: 30%;
+    background-color: #bb474b;
+    border: 1px solid black;
+}
+
+/* MEDIA QUERIES */
+@media screen and (min-width:768px) {
+
+    body {
+        overflow: hidden;
+    }
+
+    #widgets_menu{
+        margin: 0;
+        position: relative;
+        top: 25vh;
+        left: 18vw;
+        
+    }   
+    
+    #widgets_col1 {
+    margin-left: 15px;
+    margin-right: 5px;
+    margin-bottom: 5px;
+    margin-top: 2px;
+    background-color: #bb474b;
+    border: 2px solid black;
+    border-radius: 15px;
+    height: 5em;
+    text-transform: capitalize;
+    padding-top: 1.5em;
+    padding-bottom: 1.5em;
+    font-size: 120%;
+    }
+    
+    #widgets_col1 > a {
+        text-decoration: none;
+        font-weight: bold;
+        color: #f6f4f2;
+        padding-bottom: 50px;
+    }
+}
+
+@media screen and (max-width:767px) {
+    #widgets_menu{
+        margin-top: 5%;
+    }
+
+    #widgets_col1 {
+    margin-left: 5px;
+    margin-right: 5px;
+    margin-bottom: 5px;
+    background-color: #bb474b;
+    border: 2px solid black;
+    border-radius: 15px;
+    height: 5em;
+    text-transform: capitalize;
+    padding-top: 1.5em;
+    padding-bottom: 1.5em;
+    font-size: 120%;
+    }
+
+    #widgets_col1 > a {
+        text-decoration: none;
+        font-weight: bold;
+        color: #f6f4f2;
+        padding-bottom: 50px;
+    }
+
+    #auth-links {
+        padding-left: 68%;
+    }
+    
 }

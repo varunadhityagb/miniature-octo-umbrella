@@ -1,0 +1,43 @@
+{% extends "base_files/main_base.html" %} {% block title %} Login {% endblock %}
+
+{% block content %}
+<header><h1 style="text-align: center; font-family: 'Edu NSW ACT Foundation', cursive; font-weight: bolder; color: #f6f4f2; text-decoration:wavy;">Miniature-Octo-Umberella</h1></header>
+{% with messages = get_flashed_messages(with_categories=true) %}
+{% if messages %}
+    {% for category, message in messages %}
+    {% if category == 'error' %}
+    <div class="alert alert-danger alert-dismissable fade show" role="alert">
+        {{ message }}
+        <button type="button" class="btn-close" aria-label="Close" data-bs-dismiss="alert" style="float: right;"></button>
+    </div>
+    {% else %}
+    <div class="alert alert-success alert-dismissable fade show" role="alert" id="div_flash">
+        {{ message }}
+        <button type="button" class="btn-close" aria-label="Close" data-dismiss="alert" data-bs-dismiss="alert" style="float: right;"></button>
+    </div>
+    {% endif %}
+    {% endfor %}
+{% endif %}
+{% endwith %}
+
+<div class="container mb-3" style="display: flex; justify-content: center;">
+    <form method="POST">
+        <div class="mb-3">
+            <label for="emailInput" class="col-form-label" id="label-in-login">Email</label>
+            <input type="email" class="form-control" id="emailInput" autocomplete="off" name="email">
+        </div>
+        <div class="mb-3">
+            <label for="inputPass" class="col-form-label" id="label-in-login">Passsword</label>
+            <input type="password" class="form-control" id="inputPass" name="password">
+        </div>
+        <div class="mb-3 form-check">
+            <input type="checkbox" class="form-check-input" id="keeplogin" name="keeplogCheck">
+        <label class="form-check-label" for="keeplogin" id="keeplogin">Keep me Logged In</label>
+        </div>
+        <button type="submit" class="btn btn-primary" id="loginBtn" aria-describedby="uplink">Login</button>
+        <div class="form-text" id="uplink"><a href='/signup' id="auth-links">Sign Up?</a></div>
+    </form>
+</div>
+
+
+{% endblock %}
