@@ -9,11 +9,11 @@ body {
     float: none;
     position: relative;
     transform: translate(-50%, -50%);
-    text-decoration: none;
-    font-family: 'Oxygen', sans-serif;
+    text-decoration: wavy;
     color: black;
-    font-size: 100%;
+    font-size: 120%;
     font-weight: bolder;
+    font-family: 'Edu NSW ACT Foundation', cursive;
 
 }
 
@@ -30,6 +30,8 @@ body {
     font-weight: bold;
     background-color: #cc8c6a;
     border-radius: 15px;
+    margin-left: 5px;
+    margin-top: 5px;
 }
 
 #nav-link-2 {
@@ -39,8 +41,6 @@ body {
     font-weight: bold;
     float: right;
 }
-
-
 
 #navbarNav1 {
     background-color: #cb7a4d;
@@ -80,39 +80,69 @@ body {
 }
 
 input[type="month"] {
-    background-color: #bb474b;
     font-family: 'Oxygen', sans-serif;
 }
 
-#label-in-login {
+#label-in-auth {
     color: #f6f4f2;
     font-size: 120%;
-}    
+    
+}   
 
-#keeplogin {
+div.container {
+    text-align: center;
+}
+
+label#keeplogin {
     color: #f6f4f2;
+    width: 10em;
 }
 
-#auth-links {
-    color: #bb474b;
-    text-decoration: solid;
-    font-weight: bolder;
-    padding-left: 70%;
-}
 
 #loginBtn {
     color: black;
     font-weight: bold;
-    margin-left: 30%;
     background-color: #bb474b;
     border: 1px solid black;
 }
 
+#auth-nav {
+    background-color: #cb7a4d;
+    width: 50%;
+    margin: 2% 25% 2% 25%;
+    border-radius: 15px;
+    font-size: 150%;
+    border:3px black solid;
+}
+
+#auth-nav a {
+    text-decoration: none;
+    color: black;
+    font-weight: bolder;
+}
+
+#auth-nav > .row > .active-auth-form > a {
+    background-color: #bb474b;
+    border-radius: 10px;
+    border: 1px solid black;
+    padding-left: 4px;
+    padding-right: 4px;
+}
+
+#showPass {
+    margin-left: 14em;
+}
+
+#back-arrow {
+    color: white;
+}
+
+/*********************************************************************************************************************/
 /* MEDIA QUERIES */
 @media screen and (min-width:768px) {
 
     body {
-        overflow: hidden;
+        overflow-x: hidden;
     }
 
     #widgets_menu{
@@ -172,8 +202,14 @@ input[type="month"] {
         padding-bottom: 50px;
     }
 
-    #auth-links {
-        padding-left: 68%;
+    #showPass {
+        margin-left: 8em;
     }
     
+    label#keeplogin {
+        color: #f6f4f2;
+        margin-left: 0.001px;
+        width: 9em;
+    }
 }
+

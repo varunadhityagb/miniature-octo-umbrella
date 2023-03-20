@@ -4,21 +4,18 @@
 
 {% block content %}
 <header>
-    <nav class="navbar navbar-expand-lg bg-body-tertiary" style="background-color: #152f4e;">
-        <div class="container" id="no-padding">
+    <nav id="header-nav" class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
             <div class="navbar-brand">
-                <a href="/home">
-                    <span id="back-arrow" class="carousel-control-prev-icon"></span>
-                </a>
+                <a href="/"  ><h1><i class="bi bi-chevron-left"></i></h3></span></a>
             </div>
-            <div class="nav-item">
-                <input type="month" class="form-control" id="date" name="date" value="{{month}}" onclick="console.log()">
+            <div class="navbar-brand">
+                <a href="/"  ><b>Miniature-Octo-Umberella</b></a>
             </div>
         </div>
     </nav>
 </header>
 
-<!--Flash-->
 {% with messages = get_flashed_messages(with_categories=true) %}
 {% if messages %}
     {% for category, message in messages %}
@@ -36,8 +33,22 @@
     {% endfor %}
 {% endif %}
 {% endwith %}
-<!--Flash Ends-->
 
+<div class="container mb-3" style="display: flex; justify-content: center; border: 6px black solid; position: relative; top:25px; border-radius: 15px;">
+    <form method="POST">
+        <div class="row">
+            <div class="col mt-5 mb-5 ml-5 mr-5">
+                <label for="month" class="form-label" id="label-in-auth">Date : </label>
+            </div>
+            <div class="col mt-5 mb-5 ml-5 mr-5">
+                <input type="month" class="form-control" id="month" name="month">
+            </div>
+            <div class="col">
+                <button type="submit" class="btn btn-primary mt-5 mb-5 ml-5 mr-5" id="loginBtn">Get</button>
+            </div>        
+        </div>
+    </form>
+</div>
 
 {% endblock %}
 

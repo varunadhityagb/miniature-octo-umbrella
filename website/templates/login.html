@@ -20,24 +20,57 @@
 {% endif %}
 {% endwith %}
 
+<div class="continer text-center mt-5" id="auth-nav">
+    <div class="row">
+        <div class="col active-auth-form">
+            <a href="/">Login</a>
+        </div>
+        <div class="col">
+            <a href="/signup">Sign Up</a>
+        </div>
+    </div>
+</div>
+
 <div class="container mb-3" style="display: flex; justify-content: center;">
     <form method="POST">
         <div class="mb-3">
-            <label for="emailInput" class="col-form-label" id="label-in-login">Email</label>
-            <input type="email" class="form-control" id="emailInput" autocomplete="off" name="email">
+            <label for="emailInput" class="col-form-label" id="label-in-auth">Email</label>
+            <input type="email" class="form-control" id="emailInput" autocomplete="off" placeholder="example@example.com" name="email">
         </div>
         <div class="mb-3">
-            <label for="inputPass" class="col-form-label" id="label-in-login">Passsword</label>
-            <input type="password" class="form-control" id="inputPass" name="password">
+            <label for="inputPass" class="col-form-label" id="label-in-auth">Passsword</label>
+            <input type="password" class="form-control" id="inputPass"  placeholder="Enter Password" name="password">
         </div>
-        <div class="mb-3 form-check">
-            <input type="checkbox" class="form-check-input" id="keeplogin" name="keeplogCheck">
-        <label class="form-check-label" for="keeplogin" id="keeplogin">Keep me Logged In</label>
+        <div class="row" id="checkboxe-class">
+            <div class="mb-3 form-check col">
+                <input type="checkbox" class="form-check-input" id="showPass-login" name="showPass">
+                <label class="form-check-label" for="showPass-login" id="keeplogin">Show Passsword</label>
+            </div>
+            <div class="mb-3 form-check col">
+                <input type="checkbox" class="form-check-input" id="keeplogin" name="keeplogCheck">
+                <label class="form-check-label" for="keeplogin" id="keeplogin">Keep me Logged In</label>
+            </div>
         </div>
-        <button type="submit" class="btn btn-primary" id="loginBtn" aria-describedby="uplink">Login</button>
-        <div class="form-text" id="uplink"><a href='/signup' id="auth-links">Sign Up?</a></div>
+        <button type="submit" class="btn btn-primary" id="loginBtn">Login</button>
     </form>
 </div>
 
+
+
+
+{% endblock %}
+
+{% block js %} 
+
+<script>
+    document.getElementById("keeplogin").defaultChecked;
+    document.getElementById('showPass-login').onclick = function() {
+        if ( this.checked ) {
+        document.getElementById('inputPass').type = "text";
+        } else {
+        document.getElementById('inputPass').type = "password";
+        }
+    };
+</script>
 
 {% endblock %}

@@ -1,0 +1,12 @@
+{% extends 'base_files/main_base.html' %}
+{% block title %} {{session['summary']['month'] + ' ' + session['summary']['year']}} Report {% endblock %}
+
+{% block content %}
+
+<div class="navbar-brand">
+    <a href="/summary" >
+        <h1><i id="back-arrow" class="bi bi-x-circle"></i>
+    </a></h1>
+</div>
+
+{% endblock %}
