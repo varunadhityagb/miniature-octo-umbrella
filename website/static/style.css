@@ -21,6 +21,7 @@ body {
     background-color: #cb7a4d;
     border-radius: 1vw;
     border: 3px solid black;
+    width: 100vw;
 }
 
 #nav-link-1 {
@@ -40,6 +41,11 @@ body {
     color: black;
     font-weight: bold;
     float: right;
+}
+
+.active {
+    background-color: #cc8c6a;
+    border-radius: 15px;
 }
 
 #navbarNav1 {
@@ -137,6 +143,27 @@ label#keeplogin {
     color: white;
 }
 
+#close-btn {
+    padding-left: 4%;
+    padding-top: 2%;
+}
+
+#main-report {
+    position: relative;
+    background-color: #cb7a4d;
+    border: 2px black solid;
+    width:96vw;
+    height: 85vh;
+    border-radius: 15px;
+}
+
+#report-view {
+    margin: 1%;
+    height: 80vh;
+    width: 92vw
+
+}
+
 /*********************************************************************************************************************/
 /* MEDIA QUERIES */
 @media screen and (min-width:768px) {
@@ -182,17 +209,17 @@ label#keeplogin {
     }
 
     #widgets_col1 {
-    margin-left: 5px;
-    margin-right: 5px;
-    margin-bottom: 5px;
-    background-color: #bb474b;
-    border: 2px solid black;
-    border-radius: 15px;
-    height: 5em;
-    text-transform: capitalize;
-    padding-top: 1.5em;
-    padding-bottom: 1.5em;
-    font-size: 120%;
+        margin-left: 5px;
+        margin-right: 5px;
+        margin-bottom: 5px;
+        background-color: #bb474b;
+        border: 2px solid black;
+        border-radius: 15px;
+        height: 5em;
+        text-transform: capitalize;
+        padding-top: 1.5em;
+        padding-bottom: 1.5em;
+        font-size: 120%;
     }
 
     #widgets_col1 > a {

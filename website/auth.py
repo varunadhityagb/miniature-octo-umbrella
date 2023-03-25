@@ -9,7 +9,7 @@ auth = Blueprint('auth', __name__)
 def login():
     if request.method == "POST":
         cur = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
-        cur.execute('select email, user_password, id, full_name from users;')
+        cur.execute('select email, user_password, id, full_name, admin_access from users;')
         data = cur.fetchall()
         email = request.form.get('email')
         password = request.form.get('password')
@@ -20,18 +20,21 @@ def login():
         passwords = []
         ids = []
         full_names = []
+        admins = []
 
         for i in data:
             emails.append(i['email'])
             passwords.append(i['user_password'])
             ids.append(i['id'])
             full_names.append(i['full_name'])
+            admins.append(i['admin_access'])
 
         try:
             required_index = emails.index(email)
             id_queried = ids[required_index]
             name_queried = full_names[required_index]
             password_queried = passwords[required_index]
+            admin_access = admins[required_index]
 
             if check_password_hash(password_queried, password):
                 if keep_logged_in == None:
@@ -42,6 +45,10 @@ def login():
                 session['user'] = id_queried
                 session['name'] = name_queried
                 session['email'] = email
+                if admin_access == 1:
+                    session['is_admin'] = True
+                else:
+                    session['is_admin'] = False
                 return redirect(url_for('views.home'))
             else:
                 flash("Incorrect Password Entered!!", 'error')
@@ -86,7 +93,11 @@ def signup():
             flash("Passwords don't match!!", 'error')
         else:
             password = generate_password_hash(password, method="sha256")
-            cur.execute(f"INSERT INTO users (full_name,email,auth_key,user_password) VALUES ('{name}','{email}','{auth_key}','{password}');")
+            if emails == []:
+                cur.execute(f"INSERT INTO users (full_name,email,auth_key,user_password, admin_access) VALUES ('{name}','{email}','{auth_key}','{password}', '1');")
+                session['is_admin'] = True
+            else:
+                cur.execute(f"INSERT INTO users (full_name,email,auth_key,user_password, admin_access) VALUES ('{name}','{email}','{auth_key}','{password}', '0');")
             mysql.connection.commit()
 
             cur.execute(f"SELECT id FROM users WHERE email='{email}'")

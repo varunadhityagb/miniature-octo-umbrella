@@ -30,12 +30,16 @@
     
                 <div class="collapse navbar-collapse" id="navbarNav1">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        {% block flats %}
                         <li class="nav-item">
-                            <a id="nav-link-2" class="nav-link" href="/settings">Flats</a>
+                             <a id="nav-link-2" class="nav-link" href="/settings">Flats</a> 
                         </li>
+                        {% endblock %}
+                        {% block settings %}
                         <li class="nav-item">
-                            <a id="nav-link-2" class="nav-link" href="/general-settings">General Settings</a>
+                             <a id="nav-link-2" class="nav-link" href="/general-settings">General Settings</a> 
                         </li>
+                        {% endblock %}
                     </ul>
                 </div>
         </nav>

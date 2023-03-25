@@ -15,7 +15,11 @@ def home():
 @views.route('/settings', )
 def settings():
     if 'user' in session:
-        return render_template('settings/settings.html')
+        if session['is_admin'] == True:
+            return render_template('settings/settings.html')
+        else:
+            flash("Sorry, contact admin. You don't have access to settings.", 'error')
+            return redirect(url_for('views.home'))
     else:
         flash("Please Log In First!!", 'error')
         return redirect(url_for('auth.login'))
@@ -24,7 +28,12 @@ def settings():
 @views.route('/general-settings')
 def general_settings():
     if 'user' in session:
-        return render_template('settings/general-settings.html')
+        if session['is_admin'] == True:
+            return render_template('settings/general-settings.html')
+        else:
+            flash("Sorry, contact admin. You don't have access to settings.", 'error')
+            return redirect(url_for('views.home'))
+        
     else:
         flash("Please Log In First!!", 'error')
         return redirect(url_for('auth.login'))
@@ -66,9 +75,6 @@ def summary_month():
 @views.route('/summary_show', methods=['GET','POST'])
 def show_summary():
     if 'summary' in session:
-        if request.method == 'POST':
-            pass    
-        else:
-            return render_template('widgets/summary_show.html')
+        return render_template('widgets/summary_show.html')
     else:
         return redirect(url_for('views.summary_month'))

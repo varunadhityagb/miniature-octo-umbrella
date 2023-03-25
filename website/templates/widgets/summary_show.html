@@ -2,11 +2,40 @@
 {% block title %} {{session['summary']['month'] + ' ' + session['summary']['year']}} Report {% endblock %}
 
 {% block content %}
+<div class="row">
+    <div class="navbar-brand col-4 " id="close-btn">
+        <a href="/summary" >
+            <h1><i id="back-arrow" class="bi bi-x-circle"></i>
+        </a></h1>
+    </div>
+    <div class="col-6 mt-3 mb-1" style="margin-left: 3vw; color: #f6f4f2;">
+        <h1>{{session['summary']['month'] + ' ' + session['summary']['year']}} Report</h1>
+    </div>
+    
+</div>
 
-<div class="navbar-brand">
-    <a href="/summary" >
-        <h1><i id="back-arrow" class="bi bi-x-circle"></i>
-    </a></h1>
+<div  class="container-fluid" id="main-report" style="margin-left: 2vw; margin-right: 3vw;">
+
+    {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+        {% for category, message in messages %}
+        {% if category == 'error' %}
+        <div class="alert alert-danger alert-dismissable fade show" role="alert">
+            {{ message }}
+            <button type="button" class="btn-close" aria-label="Close" data-bs-dismiss="alert" style="float: right;"></button>
+        </div>
+        {% else %}
+        <div class="alert alert-success alert-dismissable fade show" role="alert" id="div_flash">
+            {{ message }}
+            <button type="button" class="btn-close" aria-label="Close" data-dismiss="alert" data-bs-dismiss="alert" style="float: right;"></button>
+        </div>
+        {% endif %}
+        {% endfor %}
+    {% endif %}
+    {% endwith %}
+
+    <iframe src="static\sample.pdf" id="report-view"></iframe>
+    
 </div>
 
 {% endblock %}
